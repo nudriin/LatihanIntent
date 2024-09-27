@@ -16,7 +16,14 @@
         android:text="@string/change_activity_btn"
         android:layout_marginBottom="16dp"
         />
-    
+
+    <Button
+        android:id="@+id/move_act_data_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/move_with_data"
+        android:layout_marginBottom="16dp"
+        />
 
 
 

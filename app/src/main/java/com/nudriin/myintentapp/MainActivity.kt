@@ -19,6 +19,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener
         val moveBtn: Button = findViewById(R.id.change_activity_btn)
 //        this disini mengacu pada moveBtn object
         moveBtn.setOnClickListener(this) // memanggil on click event
+
+        val moveWithDataBtn: Button = findViewById(R.id.move_act_data_btn)
+        moveWithDataBtn.setOnClickListener(this)
         }
 
     override fun onClick(v: View?) {
@@ -27,6 +30,14 @@ class MainActivity : AppCompatActivity(), View.OnClickListener
 //                Membuat intent pindah ke activity lain
                 val moveIntent = Intent(this@MainActivity, MoveActivity::class.java)
                 startActivity(moveIntent) // memulai intent
+            }
+
+            R.id.move_act_data_btn -> {
+                val moveIntentWithData = Intent(this@MainActivity, MoveWithDataActivity::class.java)
+//                Menambahkan data pada intent
+                moveIntentWithData.putExtra(MoveWithDataActivity.EXTRA_NAME, "Nurdin") // mengambil constant EXTRA_NAME dari MoveWithDataActivity
+                moveIntentWithData.putExtra(MoveWithDataActivity.EXTRA_AGE, 20)
+                startActivity(moveIntentWithData)
             }
 
         }
