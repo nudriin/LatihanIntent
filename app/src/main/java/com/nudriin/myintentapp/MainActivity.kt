@@ -22,6 +22,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener
 
         val moveWithDataBtn: Button = findViewById(R.id.move_act_data_btn)
         moveWithDataBtn.setOnClickListener(this)
+
+        val moveWithObjButton: Button = findViewById(R.id.btn_move_act_parcelable)
+        moveWithObjButton.setOnClickListener(this)
         }
 
     override fun onClick(v: View?) {
@@ -38,6 +41,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener
                 moveIntentWithData.putExtra(MoveWithDataActivity.EXTRA_NAME, "Nurdin") // mengambil constant EXTRA_NAME dari MoveWithDataActivity
                 moveIntentWithData.putExtra(MoveWithDataActivity.EXTRA_AGE, 20)
                 startActivity(moveIntentWithData)
+            }
+
+            R.id.btn_move_act_parcelable -> {
+                val moveIntentWithParcelables = Intent(this@MainActivity, MoveWithObjectActivity::class.java)
+                moveIntentWithParcelables.putExtra(MoveWithObjectActivity.EXTRA_PERSON, Person(name = "Nurdin", age = 20, email = "nurdin@mail.com", city = "Sukamara"))
+                startActivity(moveIntentWithParcelables)
             }
 
         }
